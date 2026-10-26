@@ -1,22 +1,28 @@
-# Trekast
+<p align="center">
+  <img src="icon-192.png" width="96" alt=""><br><br>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand/wordmark-white.svg">
+    <img src="brand/wordmark.svg" width="300" alt="Trekast">
+  </picture>
+</p>
 
-**Plan the weather for your bike tour, day by day.**
+<p align="center"><b>Your multi-day tour in daily stages – with the weather for each one.</b></p>
 
 👉 **Open the app: https://leonvolles.github.io/Trekast/**
 
-Trekast (formerly GPX Weather) is a free web app for multi-day bike tours. You load the GPX file of
-your route, choose how many kilometres you want to ride per day, and the app
-splits the route into daily stages. For every stage you see what the weather
-will be like on the road – at the time you will actually be there – plus
-distance, climbing and how much head- or tailwind to expect.
+Trekast is a free web app for multi-day bike tours. Plan your route in the app
+or load a GPX file, and Trekast splits it into daily stages – by the time you
+want to spend on the road each day, or by a fixed distance. For every stage you
+see what the weather will be like on the road, at the time you will actually be
+there, plus distance, climbing, riding time and how much head- or tailwind to
+expect. On the way it keeps track of where you are, what you have ridden and
+where you could camp tonight.
 
 The forecast comes from several weather models at once (ECMWF, ICON, GFS,
 Météo-France). The app shows whether they agree, so you know how reliable the
 forecast is.
 
 No account, no sign-up, no ads. Your tours stay on your phone.
-
-![App icon: a signpost, the white board with a cloud points back to where you rode, the yellow one with a sun points to the planned stage](icon-192.png)
 
 ## What you get for every stage
 
@@ -42,6 +48,16 @@ browser tab your tours show up in Trekast right away. If you added
 GPX Weather to your home screen, its tours are kept separately: open it, tap
 **⚙️ Settings → 💾 Backup**, then add Trekast to your home screen and load the
 file with **📥 Restore**.
+
+## The name and the icon
+
+**Trekast** is *trek* and *forecast*: the forecast for your trek. In the
+wordmark the k carries the C of *cast* – its arms are a round C grown into the
+stem.
+
+The icon is a signpost, standing where you are today. The white board with the
+cloud points back to the days you have ridden and the weather you had; the
+yellow board with the sun points ahead to the planned stage and its forecast.
 
 ## Install it on your iPhone
 
@@ -346,6 +362,14 @@ supplies: OpenStreetMap via the Overpass API. Rain radar: RainViewer. Map:
 The app checks for a newer version whenever you open it or bring it back to
 the foreground, and shows **🔄 A new version is available – tap to update**.
 The version you run is shown at the bottom of the page.
+
+## Brand files
+
+`brand/` holds the icon (`icon.svg`) and the wordmark (`wordmark.svg`,
+`wordmark-white.svg`). `brand/make-icons.mjs` draws the icon and renders the
+PNG app icons (run it from the repository root with Playwright available);
+`brand/make-wordmark.py` sets the wordmark from Bricolage Grotesque (SIL Open
+Font License) – see the comment at its top.
 
 ## Tests
 
