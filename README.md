@@ -2,7 +2,7 @@
 
 **Plan the weather for your bike tour, day by day.**
 
-👉 **Open the app: https://leonvolles.github.io/trekast/**
+👉 **Open the app: https://leonvolles.github.io/Trekast/**
 
 Trekast (formerly GPX Weather) is a free web app for multi-day bike tours. You load the GPX file of
 your route, choose how many kilometres you want to ride per day, and the app
@@ -45,7 +45,7 @@ file with **📥 Restore**.
 
 ## Install it on your iPhone
 
-1. Open **https://leonvolles.github.io/trekast/** in **Safari**.
+1. Open **https://leonvolles.github.io/Trekast/** in **Safari**.
 2. Tap the **Share** button (the square with the arrow).
 3. Choose **Add to Home Screen**, then **Add**.
 
