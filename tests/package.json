@@ -1,8 +1,8 @@
 {
-  "name": "gpxweather-tests",
+  "name": "trekast-tests",
   "private": true,
   "type": "module",
-  "description": "Browser test of GPX Weather with mocked weather, map and chart services.",
+  "description": "Browser test of Trekast with mocked weather, map and chart services.",
   "scripts": { "test": "node app.test.mjs" },
   "devDependencies": {
     "jspdf": "4.2.1",

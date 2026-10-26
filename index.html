@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GPX Weather</title>
-<meta name="description" content="Split a GPX bike tour into daily stages and compare the weather of several forecast models along the route.">
+<title>Trekast</title>
+<meta name="description" content="Plan a multi-day tour in daily stages and see the weather of several forecast models for each stage.">
 <meta name="theme-color" content="#18412d">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="GPX Weather">
+<meta name="apple-mobile-web-app-title" content="Trekast">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -71,6 +71,7 @@
   a { color: var(--accent); }
   header { background: var(--brand); color: var(--brand-ink); padding: 16px 20px; border-radius: 16px; }
   header h1 { margin: 0 0 2px; font-size: 1.45rem; }
+  header h1 .logo { height: 1.15em; width: auto; border-radius: .25em; vertical-align: -0.2em; }
   header p { margin: 0; opacity: 0.9; font-size: 0.95rem; }
   h2.part { font-size: 1.1rem; margin: 26px 0 8px; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
@@ -291,7 +292,7 @@
 <body>
 <main>
 <header>
-  <h1>🚲 GPX Weather</h1>
+  <h1><img class="logo" src="icon-192.png" alt=""> Trekast</h1>
   <p>Daily stages and multi-model weather for your bike tour.</p>
 </header>
 
@@ -431,7 +432,7 @@
     <a class="button" id="planWeb" target="_blank" rel="noopener">🌐 BRouter-Web ↗</a>
   </div>
   <div class="small muted" style="margin-top:8px">Routing by <a href="https://brouter.de/brouter-web/" target="_blank" rel="noopener">BRouter</a>
-    (OpenStreetMap data). Riding times come from GPX Weather's own model, calibrated on your rides – BRouter-Web's
+    (OpenStreetMap data). Riding times come from Trekast's own model, calibrated on your rides – BRouter-Web's
     time estimate only knows the weight and power you set in its Profile panel.</div>
 </div>
 
@@ -521,7 +522,7 @@
 /* ---------- Configuration ---------- */
 
 // Bump with every release (and VERSION in sw.js): the app compares it with the published page to offer updates.
-const APP_VERSION = "2026-10-19.2";
+const APP_VERSION = "2026-10-26.1";
 
 // days = forecast_days requested from Open-Meteo, roughly the model's real horizon.
 const MODELS = [
@@ -3793,7 +3794,7 @@ function recordedGpx(d) {
   const title = `${S.track.name || "Tour"} – ${fmtDate(d.date)} (as ridden)`;
   const segs = recLines(d.rec).map((line) => `    <trkseg>\n${line.map(([lat, lon]) => `      <trkpt lat="${lat}" lon="${lon}"></trkpt>`).join("\n")}\n    </trkseg>`).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.1" creator="GPX Weather" xmlns="http://www.topografix.com/GPX/1/1">
+<gpx version="1.1" creator="Trekast" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata><name>${xmlEsc(title)}</name><desc>${xmlEsc(`${fmt(d.rec.km, 1)} km recorded`)}</desc></metadata>
   <trk>
     <name>${xmlEsc(title)}</name>
@@ -3925,7 +3926,7 @@ function stageGpx(st, k) {
   const startAt = st.approach ? { lat: st.approach.coords[0][0], lon: st.approach.coords[0][1] } : st.startPt;
   const segs = stageSegments(st).map((seg) => `    <trkseg>\n      ${seg.map(pt).join("\n      ")}\n    </trkseg>`).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.1" creator="GPX Weather" xmlns="http://www.topografix.com/GPX/1/1">
+<gpx version="1.1" creator="Trekast" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata><name>${xmlEsc(title)}</name><desc>${xmlEsc(desc)}</desc></metadata>
   <wpt lat="${startAt.lat.toFixed(6)}" lon="${startAt.lon.toFixed(6)}"><name>${xmlEsc("Start " + (st.no ? "stage " + st.no : "") + (placeName(st.startPt) ? ": " + placeName(st.startPt) : ""))}</name></wpt>
   <wpt lat="${st.endPt.lat.toFixed(6)}" lon="${st.endPt.lon.toFixed(6)}"><name>${xmlEsc("End " + (st.no ? "stage " + st.no : "") + (placeName(st.endPt) ? ": " + placeName(st.endPt) : ""))}</name></wpt>
@@ -4195,7 +4196,7 @@ function planGpx(name) {
   const pts = planCoords().map(([lon, lat, ele]) =>
     `<trkpt lat="${lat.toFixed(6)}" lon="${lon.toFixed(6)}">${ele != null ? `<ele>${Number(ele).toFixed(1)}</ele>` : ""}</trkpt>`).join("\n      ");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<gpx version="1.1" creator="GPX Weather (BRouter, profile ${xmlEsc(plan.profile)})" xmlns="http://www.topografix.com/GPX/1/1">
+<gpx version="1.1" creator="Trekast (BRouter, profile ${xmlEsc(plan.profile)})" xmlns="http://www.topografix.com/GPX/1/1">
   <metadata><name>${xmlEsc(name)}</name></metadata>
   <trk>
     <name>${xmlEsc(name)}</name>
@@ -4601,7 +4602,7 @@ async function exportBackup() {
 async function importBackup(file) {
   try {
     const data = JSON.parse(await file.text());
-    if (!data || data.app !== "gpxweather" || !data.idb) throw new Error("This is not a GPX Weather backup.");
+    if (!data || data.app !== "gpxweather" || !data.idb) throw new Error("This is not a Trekast backup.");
     const tours = Object.keys(data.idb).filter((k) => k.startsWith("tour|")).length;
     if (!confirm(`Restore ${tours} tour(s) with their positions and ride logs? Tours with the same id are replaced.`)) return;
     for (const [k, v] of Object.entries(data.idb)) {
@@ -5002,7 +5003,7 @@ async function downloadPdf() {
     const grey = [110, 110, 105];
 
     // Title and summary
-    write(`GPX Weather – ${T.name || "Tour"}`, 18, "bold");
+    write(`Trekast – ${T.name || "Tour"}`, 18, "bold");
     write(`Created ${new Date().toLocaleString(LOCALE)} · ${weatherStatusText() || "no weather data"}`, 9, "normal", grey);
     write(`From km ${fmt(S.startKm, 1)}: ${fmt(rest, 0)} km left, ${fmt(up, 0)} m climbing, ${st0.length} stages of ` +
       (S.planMode === "hours" ? `${fmt(S.hoursPerDay, 1)} h on the road (about ${typicalKmPerDay()} km)` : `about ${planPerDay()} km`) +

@@ -1,10 +1,10 @@
-# GPX Weather
+# Trekast
 
 **Plan the weather for your bike tour, day by day.**
 
-👉 **Open the app: https://leonvolles.github.io/GPXweather/**
+👉 **Open the app: https://leonvolles.github.io/trekast/**
 
-GPX Weather is a free web app for multi-day bike tours. You load the GPX file of
+Trekast (formerly GPX Weather) is a free web app for multi-day bike tours. You load the GPX file of
 your route, choose how many kilometres you want to ride per day, and the app
 splits the route into daily stages. For every stage you see what the weather
 will be like on the road – at the time you will actually be there – plus
@@ -16,7 +16,7 @@ forecast is.
 
 No account, no sign-up, no ads. Your tours stay on your phone.
 
-![App icon](icon-192.png)
+![App icon: a signpost, the white board with a cloud points back to where you rode, the yellow one with a sun points to the planned stage](icon-192.png)
 
 ## What you get for every stage
 
@@ -34,13 +34,22 @@ No account, no sign-up, no ads. Your tours stay on your phone.
 You also get a map of the whole tour (bike map by CyclOSM), an elevation profile,
 an overview table of all stages, and the whole forecast as a PDF.
 
+## Coming from GPX Weather?
+
+The app used to be called GPX Weather and lived at
+https://leonvolles.github.io/GPXweather/. That address still works. In a
+browser tab your tours show up in Trekast right away. If you added
+GPX Weather to your home screen, its tours are kept separately: open it, tap
+**⚙️ Settings → 💾 Backup**, then add Trekast to your home screen and load the
+file with **📥 Restore**.
+
 ## Install it on your iPhone
 
-1. Open **https://leonvolles.github.io/GPXweather/** in **Safari**.
+1. Open **https://leonvolles.github.io/trekast/** in **Safari**.
 2. Tap the **Share** button (the square with the arrow).
 3. Choose **Add to Home Screen**, then **Add**.
 
-"GPX Weather" now sits on your home screen like a normal app. It opens full
+"Trekast" now sits on your home screen like a normal app. It opens full
 screen and also starts without a connection, showing the last weather it
 loaded.
 
@@ -64,7 +73,7 @@ options like 🚗 avoid main roads, 🚲 cycle routes only, ⛴️ no ferries or
 roads. Drag points to adjust, then tap **✓ Use as tour**. **📲 GPX** saves the
 route (e.g. for Bergfex Touren), **🌐 BRouter-Web** opens the same points and
 profile in BRouter's full planner – export the GPX there and load it with 📂.
-(BRouter-Web can't take your speed or weight from a link; GPX Weather's own
+(BRouter-Web can't take your speed or weight from a link; Trekast's own
 riding-time model is used for all times anyway.) Routes planned with BRouter bring their
 road surfaces along, so the riding-time model knows them right away.
 
@@ -72,7 +81,7 @@ road surfaces along, so the riding-time model knows them right away.
 Strava, Ride with GPS, Garmin or a tour website. On the iPhone, save it to the **Files** app first
 (*Share → Save to Files*).
 
-In GPX Weather tap **＋ GPX** and pick the file. The route, map and stages
+In Trekast tap **＋ GPX** and pick the file. The route, map and stages
 appear right away; the weather follows a few seconds later. The tour is saved
 on your phone, so you only do this once.
 
@@ -142,10 +151,10 @@ You have two ways to close a day:
   straight from a Garmin, Wahoo or Hammerhead work as well (with heart rate,
   power, cadence and temperature), and you can pick several files at once.
 
-  *Sharing straight from another app (e.g. Bergfex) into GPX Weather isn't
+  *Sharing straight from another app (e.g. Bergfex) into Trekast isn't
   possible on iPhone: iOS doesn't let web apps appear in the share sheet. The
   quickest way: in the other app **Share → Save to Files** into one folder,
-  then **📤 Upload** in GPX Weather – the file picker opens on that folder.*
+  then **📤 Upload** in Trekast – the file picker opens on that folder.*
 
 **📈 on a recorded day** opens what your bike computer or watch recorded:
 moving time, average and top speed, heart rate (average and max), power
